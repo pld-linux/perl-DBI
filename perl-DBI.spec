@@ -1,49 +1,48 @@
+#
+# Conditional build:
+# _without_tests - do not perform "make test"
 %include	/usr/lib/rpm/macros.perl
-%define		pdir	DBI
-%define		pnam	DBI
-Summary:	DBI Perl module
-Summary(cs):	Modul DBI pro Perl
-Summary(da):	Perlmodul DBI
-Summary(de):	DBI Perl Modul
-Summary(es):	Módulo de Perl DBI
-Summary(fr):	Module Perl DBI
-Summary(it):	Modulo di Perl DBI
-Summary(ja):	DBI Perl ¥â¥¸¥å¡¼¥ë
-Summary(ko):	DBI ÆÞ ¸ðÁÙ
-Summary(no):	Perlmodul DBI
-Summary(pl):	Modu³ Perla DBI
-Summary(pt):	Módulo de Perl DBI
-Summary(pt_BR):	Módulo Perl DBI
-Summary(ru):	íÏÄÕÌØ ÄÌÑ Perl DBI
-Summary(sv):	DBI Perlmodul
-Summary(uk):	íÏÄÕÌØ ÄÌÑ Perl DBI
-Summary(zh_CN):	DBI Perl Ä£¿é
+%define	pdir	DBI
+%define	pnam	DBI
+Summary:	DBI - Database independent interface for Perl
+Summary(pl):	DBI - niezale¿ny interfejs baz danych dla perla
 Name:		perl-DBI
-Version:	1.21
-Release:	4
-License:	GPL
+Version:	1.30
+Release:	1
+License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
-Patch0:		%{name}-fmt.patch
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.6.1
+%if %{?_without_tests:0}%{!?_without_tests:1}
 BuildRequires:	perl-PlRPC
+BuildRequires:	perl-Storable
+BuildRequires:	perl-Net-Daemon
+%endif
 Obsoletes:	perl-DBI-FAQ
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_noautoreq	'perl(DBD::<foo>)' 'perl(DBI::Format)' 'perl(DBI::PurePerl)'
+
 %description
-DBI - Database independent interface for Perl
+The DBI is a database access module for the Perl programming language.
+It defines a set of methods, variables, and conventions that provide
+a consistent database interface, independent of the actual database
+being used.
 
 %description -l pl
-DBI - niezale¿ny interfejs bazy danych dla perla
+DBI jest modu³em dostêpu do baz danych dla Perla.  Definiuje grupê metod,
+zmiennych i konwencji, zapewniaj±cych spójny interfejs do baz danych,
+niezale¿ny od typu aktualnie u¿ywanej bazy.
 
 %prep
 %setup -q -n %{pnam}-%{version}
-%patch -p0
 
 %build
 perl Makefile.PL
 %{__make} OPTIMIZE="%{rpmcflags}"
+
+%{!?_without_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -60,21 +59,14 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes README ToDo
 %attr(755,root,root) %{_bindir}/*
 %dir %{perl_sitelib}/DBIx
-%dir %{perl_sitearch}/DBD
-%{perl_sitearch}/DBD/*.pm
-%dir %{perl_sitearch}/DBI
 %{perl_sitearch}/DBI.pm
-%{perl_sitearch}/DBI/*.pm
-%dir %{perl_sitearch}/Win32
-%{perl_sitearch}/Win32/DBIODBC.pm
+%{perl_sitearch}/DBI
+%{perl_sitearch}/DBD
 %dir %{perl_sitearch}/auto/DBD
 %dir %{perl_sitearch}/auto/DBI
-%{perl_sitearch}/auto/DBI/DBIXS.h
+%{perl_sitearch}/auto/DBI/*.h
 %{perl_sitearch}/auto/DBI/Driver.xst
-%{perl_sitearch}/auto/DBI/dbd_xsh.h
-%{perl_sitearch}/auto/DBI/dbi_sql.h
 %{perl_sitearch}/auto/DBI/DBI.bs
-%{perl_sitearch}/auto/DBI/dbipport.h
 %attr(755,root,root) %{perl_sitearch}/auto/DBI/DBI.so
 %{_mandir}/man1/*
-%{_mandir}/man3/*
+%{_mandir}/man3/D*
