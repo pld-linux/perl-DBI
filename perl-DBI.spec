@@ -23,8 +23,8 @@ Summary(ru):	Библиотека для доступа к базам данных для Perl
 Summary(sv):	Ett databasЕtkomst-API fЖr Perl
 Summary(zh_CN):	Perl ╣дйЩ╬щ©Б╥цнй API║ё
 Name:		perl-DBI
-Version:	1.35
-Release:	4
+Version:	1.37
+Release:	1
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
