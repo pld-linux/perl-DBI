@@ -5,11 +5,11 @@
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	DBI
 %define	pnam	DBI
-Summary:	DBI - Database independent interface for Perl
+Summary:	DBI - database independent interface for Perl
 Summary(pl):	DBI - niezale¿ny interfejs baz danych dla perla
 Name:		perl-DBI
-Version:	1.32
-Release:	3
+Version:	1.35
+Release:	1
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
@@ -37,6 +37,26 @@ being used.
 DBI jest modu³em dostêpu do baz danych dla Perla.  Definiuje grupê metod,
 zmiennych i konwencji, zapewniaj±cych spójny interfejs do baz danych,
 niezale¿ny od typu aktualnie u¿ywanej bazy.
+
+%package ProfileDumper-Apache
+Summary:	DBI::ProfileDumper::Apache - capture DBI profiling data from Apache/mod_perl
+Summary(pl):	DBI::ProfileDumper::Apache - przechwytywanie danych parametryzuj±cych DBI z Apache/mod_perl
+Group:		Development/Languages/Perl
+Requires:	%{name} = %{version}
+
+%description ProfileDumper-Apache
+This module interfaces DBI::ProfileDumper to Apache/mod_perl. Using
+this module you can collect profiling data from mod_perl applications.
+It works by creating a DBI::ProfileDumper data file for each Apache
+process. These files are created in your Apache log directory. You can
+then use dbiprof to analyze the profile files.
+
+%description ProfileDumper-Apache -l pl
+Modu³ ten sprzêga DBI::ProfileDumper z Apache/mod_perl. Korzystaj±c z
+niego mo¿na pobraæ dane o parametryzacji z aplikacji mod_perl. Dzia³a
+on w oparciu o tworzenie przez DBI::ProfileDumper pliku danych dla
+ka¿dego procesu Apache'a. Pliki te tworzone s± w katalogu logów
+Apache'a. Mo¿na je analizowaæ za pomoc± dbiprof.
 
 %prep
 %setup -q -n %{pnam}-%{version}
@@ -68,6 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorarch}/DBI
 %{perl_vendorarch}/DBI/Const
 %{perl_vendorarch}/DBI/[DFPS]*.pm
+%{perl_vendorarch}/DBI/DBD
 %{perl_vendorarch}/DBD
 %dir %{perl_vendorarch}/auto/DBD
 %dir %{perl_vendorarch}/auto/DBI
@@ -76,4 +97,16 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/auto/DBI/DBI.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/DBI/DBI.so
 %{_mandir}/man1/*
-%{_mandir}/man3/D*
+%{_mandir}/man3/DBD*
+%{_mandir}/man3/DBI.*
+%{_mandir}/man3/DBI::Profile.*
+%{_mandir}/man3/DBI::ProfileData.*
+%{_mandir}/man3/DBI::ProfileDumper.*
+%{_mandir}/man3/DBI::ProxyServer.*
+%{_mandir}/man3/DBI::PurePerl.*
+%{_mandir}/man3/DBI::[!PW]*
+
+%files ProfileDumper-Apache
+%defattr(644,root,root,755)
+%{perl_vendorarch}/DBI/ProfileDumper
+%{_mandir}/man3/DBI::ProfileDumper::*
