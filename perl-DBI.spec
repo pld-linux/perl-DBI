@@ -23,12 +23,12 @@ Summary(ru):	âÉÂÌÉÏÔÅËÁ ÄÌÑ ÄÏÓÔÕÐÁ Ë ÂÁÚÁÍ ÄÁÎÎÙÈ ÄÌÑ Perl
 Summary(sv):	Ett databasåtkomst-API för Perl
 Summary(zh_CN):	Perl µÄÊý¾Ý¿â·ÃÎÊ API¡£
 Name:		perl-DBI
-Version:	1.37
+Version:	1.38
 Release:	1
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
-# Source0-md5:	0113d0f47cf13b0694e0bfb2d13a5789
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
+# Source0-md5:	58c8192d88511e08ea59a1cc70bd0a80
 Patch0:		perl-DBI-changes.patch
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	perl-devel >= 5.6.1
@@ -159,14 +159,16 @@ Apache'a. Mo¿na je analizowaæ za pomoc± dbiprof.
 %build
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
-%{__make} OPTIMIZE="%{rpmcflags}"
+%{__make} \
+	OPTIMIZE="%{rpmcflags}"
 
 %{?_with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT{%{perl_vendorlib}/DBIx,%{perl_vendorarch}/auto/DBD}
 
@@ -184,6 +186,7 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/DBI/[DFPS]*.pm
 %{perl_vendorarch}/DBI/DBD
 %{perl_vendorarch}/DBD
+%{perl_vendorarch}/Bundle
 %dir %{perl_vendorarch}/auto/DBD
 %dir %{perl_vendorarch}/auto/DBI
 %{perl_vendorarch}/auto/DBI/*.h
@@ -199,6 +202,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/DBI::ProxyServer.*
 %{_mandir}/man3/DBI::PurePerl.*
 %{_mandir}/man3/DBI::[!PW]*
+%{_mandir}/man3/Bundle*
 
 %files ProfileDumper-Apache
 %defattr(644,root,root,755)
