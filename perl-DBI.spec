@@ -21,6 +21,7 @@ BuildRequires:	perl-PlRPC
 BuildRequires:	perl-Storable
 BuildRequires:	perl-Net-Daemon
 %endif
+Requires:	perl-PlRPC
 Obsoletes:	perl-DBI-FAQ
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
