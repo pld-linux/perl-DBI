@@ -2,7 +2,7 @@
 Summary:	DBI perl module
 Summary(pl):	Modu³ perla DBI
 Name:		perl-DBI
-Version:	1.20
+Version:	1.21
 Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
@@ -51,6 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %dir %{perl_sitearch}/DBD
+%{perl_sitearch}/Bundle/*.pm
 %{perl_sitearch}/DBD/*.pm
 %dir %{perl_sitearch}/DBI
 %{perl_sitearch}/DBI.pm
@@ -66,4 +67,4 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_sitearch}/auto/DBI/dbipport.h
 %attr(755,root,root) %{perl_sitearch}/auto/DBI/DBI.so
 %{_mandir}/man1/*
-%{_mandir}/man3/[DW]*
+%{_mandir}/man3/*
