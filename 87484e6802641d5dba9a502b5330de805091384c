@@ -1,0 +1,3 @@
+- removed Win32 files, provided informative summary/description,
+  added conditional tests, fixed License field
+- version 1.30
