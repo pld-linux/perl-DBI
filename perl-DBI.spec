@@ -43,7 +43,7 @@ niezale¿ny od typu aktualnie u¿ywanej bazy.
 %patch0 -p0
 
 %build
-perl Makefile.PL
+%{__perl} Makefile.PL
 %{__make} OPTIMIZE="%{rpmcflags}"
 
 %{?_with_tests:%{__make} test}
