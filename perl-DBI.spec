@@ -20,7 +20,7 @@ Summary(uk):	Модуль для Perl DBI
 Summary(zh_CN):	DBI Perl дё©И
 Name:		perl-DBI
 Version:	1.21
-Release:	3
+Release:	4
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
@@ -61,7 +61,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{perl_sitelib}/DBIx
 %dir %{perl_sitearch}/DBD
-%{perl_sitearch}/Bundle
 %{perl_sitearch}/DBD/*.pm
 %dir %{perl_sitearch}/DBI
 %{perl_sitearch}/DBI.pm
