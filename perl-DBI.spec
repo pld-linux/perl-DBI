@@ -2,8 +2,8 @@
 Summary:	DBI perl module
 Summary(pl):	Modu³ perla DBI
 Name:		perl-DBI
-Version:	1.07
-Release:	3
+Version:	1.09
+Release:	1
 Copyright:	GPL
 Group:		Development/Languages/Perl
 Group(pl):	Programowanie/Jêzyki/Perl
