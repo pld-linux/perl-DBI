@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_without	autodeps	# don't BR packages needed only for resolving deps
 %bcond_with	tests		# perform "make test"
-
+#
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	DBI
 %define	pnam	DBI
@@ -37,6 +37,7 @@ BuildRequires:	perl-PlRPC
 BuildRequires:	perl-Storable
 BuildRequires:	perl-Net-Daemon
 %endif
+Conflicts:	perl-DBD-CSV < 1:0.21
 Obsoletes:	perl-DBI-FAQ
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -136,7 +137,7 @@ DBI 是用于 Perl 编程语言的数据库访问程序编写界面 (API)。 DBI API
 Summary:	DBI::ProfileDumper::Apache - capture DBI profiling data from Apache/mod_perl
 Summary(pl):	DBI::ProfileDumper::Apache - przechwytywanie danych parametryzuj眂ych DBI z Apache/mod_perl
 Group:		Development/Languages/Perl
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description ProfileDumper-Apache
 This module interfaces DBI::ProfileDumper to Apache/mod_perl. Using
