@@ -3,14 +3,15 @@ Summary:	DBI perl module
 Summary(pl):	Modu³ perla DBI
 Name:		perl-DBI
 Version:	1.14
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
+Group(de):	Entwicklung/Sprachen/Perl
 Group(pl):	Programowanie/Jêzyki/Perl
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/DBI/DBI-%{version}.tar.gz
 Patch0:		%{name}-fmt.patch
 BuildRequires:	rpm-perlprov >= 3.0.3-16
-BuildRequires:	perl >= 5.005_03-14
+BuildRequires:	perl >= 5.6
 BuildRequires:	perl-PlRPC
 %requires_eq	perl
 Requires:	%{perl_sitearch}
@@ -29,44 +30,32 @@ DBI - niezale¿ny interfejs bazy danych dla perla
 
 %build
 perl Makefile.PL
-%{__make} OPTIMIZE="$RPM_OPT_FLAGS"
+%{__make} OPTIMIZE="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-strip --strip-unneeded $RPM_BUILD_ROOT/%{perl_sitearch}/auto/DBI/*.so
-
-(
-  cd $RPM_BUILD_ROOT%{perl_sitearch}/auto/DBI
-  sed -e "s#$RPM_BUILD_ROOT##" .packlist >.packlist.new
-  mv -f .packlist.new .packlist
-)
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man[13]/* \
-        Changes README ToDo
+gzip -9nf Changes README ToDo
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {Changes,README,ToDo}.gz
+%doc *.gz
 %attr(755,root,root) %{_bindir}/*
-
 %{perl_sitearch}/Bundle/DBI.pm
 %{perl_sitearch}/DBD/*.pm
 %{perl_sitearch}/DBI.pm
 %{perl_sitearch}/DBI/*.pm
 %{perl_sitearch}/Win32/DBIODBC.pm
-
 %{perl_sitearch}/auto/DBI/DBIXS.h
 %{perl_sitearch}/auto/DBI/Driver.xst
 %{perl_sitearch}/auto/DBI/dbd_xsh.h
 %{perl_sitearch}/auto/DBI/dbi_sql.h
-%{perl_sitearch}/auto/DBI/.packlist
 %{perl_sitearch}/auto/DBI/DBI.bs
 %{perl_sitearch}/auto/DBI/dbipport.h
 %attr(755,root,root) %{perl_sitearch}/auto/DBI/DBI.so
-
 %{_mandir}/man[13]/*
