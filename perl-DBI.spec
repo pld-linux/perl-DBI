@@ -4,8 +4,8 @@
 %bcond_with	tests		# perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	DBI
-%define	pnam	DBI
+%define		pdir	DBI
+%define		pnam	DBI
 Summary:	DBI - database independent interface for Perl
 Summary(cs):	API pro pøístup k databázím pro Perl
 Summary(da):	En database-API for Perl
