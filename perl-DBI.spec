@@ -172,6 +172,9 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT{%{perl_vendorlib}/DBIx,%{perl_vendorarch}/auto/DBD}
 
+# no reason to include Bundle::* in rpms
+rm -rf $RPM_BUILD_ROOT{%{perl_vendorarch}/Bundle,%{_mandir}/man3/Bundle::*}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -186,7 +189,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/DBI/[DFPS]*.pm
 %{perl_vendorarch}/DBI/DBD
 %{perl_vendorarch}/DBD
-%{perl_vendorarch}/Bundle
 %dir %{perl_vendorarch}/auto/DBD
 %dir %{perl_vendorarch}/auto/DBI
 %{perl_vendorarch}/auto/DBI/*.h
@@ -202,7 +204,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/DBI::ProxyServer.*
 %{_mandir}/man3/DBI::PurePerl.*
 %{_mandir}/man3/DBI::[!PW]*
-%{_mandir}/man3/Bundle*
 
 %files ProfileDumper-Apache
 %defattr(644,root,root,755)
