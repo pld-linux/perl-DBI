@@ -24,7 +24,7 @@ Summary(sv):	Ett databas錿komst-API f鰎 Perl
 Summary(zh_CN):	Perl 的数据库访问 API。
 Name:		perl-DBI
 Version:	1.37
-Release:	1
+Release:	2
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
 # Source0-md5:	0113d0f47cf13b0694e0bfb2d13a5789
@@ -183,6 +183,7 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/DBI/Const
 %{perl_vendorarch}/DBI/[DFPS]*.pm
 %{perl_vendorarch}/DBI/DBD
+%{perl_vendorarch}/DBI/ProfileDumper
 %{perl_vendorarch}/DBD
 %dir %{perl_vendorarch}/auto/DBD
 %dir %{perl_vendorarch}/auto/DBI
@@ -195,7 +196,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/DBI.*
 %{_mandir}/man3/DBI::Profile.*
 %{_mandir}/man3/DBI::ProfileData.*
-%{_mandir}/man3/DBI::ProfileDumper.*
+%{_mandir}/man3/DBI::ProfileDumper*
 %{_mandir}/man3/DBI::ProxyServer.*
 %{_mandir}/man3/DBI::PurePerl.*
 %{_mandir}/man3/DBI::[!PW]*
