@@ -8,8 +8,8 @@
 Summary:	DBI - Database independent interface for Perl
 Summary(pl):	DBI - niezale¿ny interfejs baz danych dla perla
 Name:		perl-DBI
-Version:	1.30
-Release:	2
+Version:	1.32
+Release:	1
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
