@@ -24,7 +24,7 @@ Summary(sv):	Ett databas錿komst-API f鰎 Perl
 Summary(zh_CN):	Perl 的数据库访问 API。
 Name:		perl-DBI
 Version:	1.42
-Release:	2
+Release:	3
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
@@ -34,7 +34,6 @@ BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	perl-devel >= 1:5.8.0
 %if %{with autodeps} || %{with tests}
 BuildRequires:	perl-PlRPC
-BuildRequires:	perl-Storable
 BuildRequires:	perl-Net-Daemon
 %endif
 Conflicts:	perl-DBD-CSV < 1:0.21
