@@ -1,0 +1,24 @@
+--- lib/DBI.old/FAQ.pm	Fri Jan  1 21:56:58 1999
++++ lib/DBI/FAQ.pm	Wed Nov  3 11:54:19 1999
+@@ -945,3 +945,5 @@
+ <!--#include virtual="/technologia/perl/DBI/templatebottom.html" -->
+ </BODY>
+ </HTML>
++
++=cut
+--- lib/DBI.old/Format.pm	Wed Sep  2 15:48:58 1998
++++ lib/DBI/Format.pm	Wed Nov  3 11:51:47 1999
+@@ -343,3 +343,5 @@
+ =head1 SEE ALSO
+ 
+ L<DBI::Shell(3)>, L<DBI(3)>, L<dbish(1)>
++
++=cut
+--- lib/DBI.old/ProxyServer.pm	Fri Apr  9 23:48:19 1999
++++ lib/DBI/ProxyServer.pm	Wed Nov  3 11:52:08 1999
+@@ -572,3 +572,5 @@
+ L<dbiproxy(1)>, L<DBD::Proxy(3)>, L<DBI(3)>, L<RPC::PlServer(3)>,
+ L<RPC::PlClient(3)>, L<Net::Daemon(3)>, L<Net::Daemon::Log(3)>,
+ L<Sys::Syslog(3)>, L<Win32::EventLog(3)>, L<syslog(2)>
++
++=cut
