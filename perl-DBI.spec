@@ -14,7 +14,7 @@ License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
 Patch0:		perl-DBI-changes.patch
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.0.2-104
 BuildRequires:	perl >= 5.6.1
 %if %{?_with_tests:1}%{!?_with_tests:0}
 BuildRequires:	perl-PlRPC
