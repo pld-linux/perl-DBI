@@ -27,8 +27,8 @@ Version:	1.37
 Release:	1
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
+# Source0-md5:	0113d0f47cf13b0694e0bfb2d13a5789
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
-# Source0-md5: 8ede0b8817ac8b0db6cc5db36109060c
 Patch0:		perl-DBI-changes.patch
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	perl-devel >= 5.6.1
