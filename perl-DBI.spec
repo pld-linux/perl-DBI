@@ -9,12 +9,12 @@ Summary:	DBI - Database independent interface for Perl
 Summary(pl):	DBI - niezale¿ny interfejs baz danych dla perla
 Name:		perl-DBI
 Version:	1.32
-Release:	2
+Release:	3
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
 Patch0:		perl-DBI-changes.patch
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	perl >= 5.6.1
 %if %{?_with_tests:1}%{!?_with_tests:0}
 BuildRequires:	perl-PlRPC
@@ -43,7 +43,8 @@ niezale¿ny od typu aktualnie u¿ywanej bazy.
 %patch0 -p0
 
 %build
-%{__perl} Makefile.PL
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor 
 %{__make} OPTIMIZE="%{rpmcflags}"
 
 %{?_with_tests:%{__make} test}
@@ -53,7 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT{%{perl_sitelib}/DBIx,%{perl_sitearch}/auto/DBD}
+install -d $RPM_BUILD_ROOT{%{perl_vendorlib}/DBIx,%{perl_vendorarch}/auto/DBD}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -62,17 +63,17 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes README ToDo
 %attr(755,root,root) %{_bindir}/*
-%dir %{perl_sitelib}/DBIx
-%{perl_sitearch}/DBI.pm
-%dir %{perl_sitearch}/DBI
-%{perl_sitearch}/DBI/Const
-%{perl_sitearch}/DBI/[DFPS]*.pm
-%{perl_sitearch}/DBD
-%dir %{perl_sitearch}/auto/DBD
-%dir %{perl_sitearch}/auto/DBI
-%{perl_sitearch}/auto/DBI/*.h
-%{perl_sitearch}/auto/DBI/Driver.xst
-%{perl_sitearch}/auto/DBI/DBI.bs
-%attr(755,root,root) %{perl_sitearch}/auto/DBI/DBI.so
+%dir %{perl_vendorlib}/DBIx
+%{perl_vendorarch}/DBI.pm
+%dir %{perl_vendorarch}/DBI
+%{perl_vendorarch}/DBI/Const
+%{perl_vendorarch}/DBI/[DFPS]*.pm
+%{perl_vendorarch}/DBD
+%dir %{perl_vendorarch}/auto/DBD
+%dir %{perl_vendorarch}/auto/DBI
+%{perl_vendorarch}/auto/DBI/*.h
+%{perl_vendorarch}/auto/DBI/Driver.xst
+%{perl_vendorarch}/auto/DBI/DBI.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/DBI/DBI.so
 %{_mandir}/man1/*
 %{_mandir}/man3/D*
