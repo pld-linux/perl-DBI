@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _without_tests - do not perform "make test"
+# _with_tests - perform "make test"
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	DBI
 %define	pnam	DBI
@@ -14,7 +14,7 @@ Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.6.1
-%if %{?_without_tests:0}%{!?_without_tests:1}
+%if %{?_witho_tests:1}%{!?_with_tests:0}
 BuildRequires:	perl-PlRPC
 BuildRequires:	perl-Storable
 BuildRequires:	perl-Net-Daemon
@@ -42,7 +42,7 @@ niezale¿ny od typu aktualnie u¿ywanej bazy.
 perl Makefile.PL
 %{__make} OPTIMIZE="%{rpmcflags}"
 
-%{!?_without_tests:%{__make} test}
+%{?_with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
