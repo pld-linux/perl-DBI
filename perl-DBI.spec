@@ -13,8 +13,6 @@ Patch0:		%{name}-fmt.patch
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.6
 BuildRequires:	perl-PlRPC
-%requires_eq	perl
-Requires:	%{perl_sitearch}
 Obsoletes:	perl-DBI-FAQ
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
