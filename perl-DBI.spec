@@ -1,3 +1,4 @@
+%include	/usr/lib/rpm/macros.perl
 Summary:	DBI perl module
 Summary(pl):	Modu³ perla DBI
 Name:		perl-DBI
@@ -7,7 +8,10 @@ Copyright:	GPL
 Group:		Development/Languages/Perl
 Group(pl):	Programowanie/Jêzyki/Perl
 Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/DBI/DBI-%{version}.tar.gz
-BuildRequires:	perl >= 5.005_03-10
+Patch:		perl-DBI-fmt.patch
+BuildRequires:	rpm-perlprov >= 3.0.3-15
+BuildRequires:	perl >= 5.005_03-14
+BuildRequires:	perl-PlRPC
 %requires_eq	perl
 Requires:	%{perl_sitearch}
 Obsoletes:	perl-DBI-FAQ
@@ -21,10 +25,11 @@ DBI - niezale¿ny interfejs bazy danych dla perla
 
 %prep
 %setup -q -n DBI-%{version}
+%patch -p0
 
 %build
 perl Makefile.PL
-make
+make OPTIMIZE="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
