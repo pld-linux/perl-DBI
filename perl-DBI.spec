@@ -66,6 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_sitearch}/auto/DBI/dbi_sql.h
 %{perl_sitearch}/auto/DBI/.packlist
 %{perl_sitearch}/auto/DBI/DBI.bs
+%{perl_sitearch}/auto/DBI/dbipport.h
 %attr(755,root,root) %{perl_sitearch}/auto/DBI/DBI.so
 
 %{_mandir}/man[13]/*
