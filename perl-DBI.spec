@@ -15,7 +15,7 @@ Summary(fr):	Une IPA pour l'accès aux bases de données pour Perl
 Summary(it):	API di accesso a database per Perl
 Summary(ja):	Perl ÍÑ¥Ç¡¼¥¿¥Ù¡¼¥¹¥¢¥¯¥»¥¹ API
 Summary(ko):	ÆÞ¿¡ »ç¿ëµÇ´Â µ¥ÀÌÅ¸º£ÀÌ½º ¾×¼¼½º API
-Summary(no):	Et database-API for Perl
+Summary(nb):	Et database-API for Perl
 Summary(pl):	DBI - niezale¿ny interfejs baz danych dla perla
 Summary(pt):	Uma API de acesso a bases de dados para o Perl
 Summary(pt_BR):	Uma API de acesso a bases de dados para o Perl
