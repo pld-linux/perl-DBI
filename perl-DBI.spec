@@ -186,8 +186,9 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/DBI.pm
 %dir %{perl_vendorarch}/DBI
 %{perl_vendorarch}/DBI/Const
-%{perl_vendorarch}/DBI/[DFPS]*.pm
 %{perl_vendorarch}/DBI/DBD
+%{perl_vendorarch}/DBI/SQL
+%{perl_vendorarch}/DBI/[DFPS]*.pm
 %{perl_vendorarch}/DBD
 %dir %{perl_vendorarch}/auto/DBD
 %dir %{perl_vendorarch}/auto/DBI
