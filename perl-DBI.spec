@@ -1,8 +1,8 @@
 #
 # Conditional build:
-# _without_autodeps	- don't BR packages needed only for resolving deps
-# _with_tests		- perform "make test"
-#
+%bcond_without	autodeps	# don't BR packages needed only for resolving deps
+%bcond_with	tests		# perform "make test"
+
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	DBI
 %define	pnam	DBI
@@ -23,16 +23,16 @@ Summary(ru):	âÉÂÌÉÏÔÅËÁ ÄÌÑ ÄÏÓÔÕÐÁ Ë ÂÁÚÁÍ ÄÁÎÎÙÈ ÄÌÑ Perl
 Summary(sv):	Ett databasåtkomst-API för Perl
 Summary(zh_CN):	Perl µÄÊý¾Ý¿â·ÃÎÊ API¡£
 Name:		perl-DBI
-Version:	1.38
+Version:	1.39
 Release:	1
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
-# Source0-md5:	58c8192d88511e08ea59a1cc70bd0a80
+# Source0-md5:	6d543c9f06d9d940dfe3aec1c4b6841d
 Patch0:		perl-DBI-changes.patch
 BuildRequires:	rpm-perlprov >= 4.1-13
-BuildRequires:	perl-devel >= 5.6.1
-%if 0%{!?_without_autodeps:1}%{?_with_tests:1}
+BuildRequires:	perl-devel >= 5.8
+%if %{with autodeps} || %{with tests}
 BuildRequires:	perl-PlRPC
 BuildRequires:	perl-Storable
 BuildRequires:	perl-Net-Daemon
@@ -162,7 +162,7 @@ Apache'a. Mo¿na je analizowaæ za pomoc± dbiprof.
 %{__make} \
 	OPTIMIZE="%{rpmcflags}"
 
-%{?_with_tests:%{__make} test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
