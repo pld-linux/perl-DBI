@@ -1,6 +1,7 @@
 #
 # Conditional build:
-# _with_tests - perform "make test"
+# _without_autodeps	- don't BR packages needed only for resolving deps
+# _with_tests		- perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	DBI
@@ -16,7 +17,7 @@ Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
 Patch0:		perl-DBI-changes.patch
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	perl >= 5.6.1
-%if %{?_with_tests:1}%{!?_with_tests:0}
+%if 0%{!?_without_autodeps:1}%{?_with_tests:1}
 BuildRequires:	perl-PlRPC
 BuildRequires:	perl-Storable
 BuildRequires:	perl-Net-Daemon
