@@ -3,7 +3,7 @@ Summary:	DBI perl module
 Summary(pl):	Modu³ perla DBI
 Name:		perl-DBI
 Version:	1.18
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Group(de):	Entwicklung/Sprachen/Perl
@@ -44,11 +44,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
-%{perl_sitearch}/Bundle/DBI.pm
+%dir %{perl_sitearch}/DBD
 %{perl_sitearch}/DBD/*.pm
+%dir %{perl_sitearch}/DBI
 %{perl_sitearch}/DBI.pm
 %{perl_sitearch}/DBI/*.pm
+%dir %{perl_sitearch}/Win32
 %{perl_sitearch}/Win32/DBIODBC.pm
+%dir %{perl_sitearch}/auto/DBI
 %{perl_sitearch}/auto/DBI/DBIXS.h
 %{perl_sitearch}/auto/DBI/Driver.xst
 %{perl_sitearch}/auto/DBI/dbd_xsh.h
@@ -56,4 +59,5 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_sitearch}/auto/DBI/DBI.bs
 %{perl_sitearch}/auto/DBI/dbipport.h
 %attr(755,root,root) %{perl_sitearch}/auto/DBI/DBI.so
-%{_mandir}/man[13]/*
+%{_mandir}/man1/*
+%{_mandir}/man3/[DW]*
