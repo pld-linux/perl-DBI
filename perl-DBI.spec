@@ -16,7 +16,7 @@ Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
 Patch0:		perl-DBI-changes.patch
 BuildRequires:	rpm-perlprov >= 4.1-13
-BuildRequires:	perl >= 5.6.1
+BuildRequires:	perl-devel >= 5.6.1
 %if 0%{!?_without_autodeps:1}%{?_with_tests:1}
 BuildRequires:	perl-PlRPC
 BuildRequires:	perl-Storable
