@@ -1,6 +1,7 @@
 #
 # Conditional build:
 # _with_tests - perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	DBI
 %define	pnam	DBI
@@ -8,10 +9,11 @@ Summary:	DBI - Database independent interface for Perl
 Summary(pl):	DBI - niezale¿ny interfejs baz danych dla perla
 Name:		perl-DBI
 Version:	1.30
-Release:	1
+Release:	2
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
+Patch0:		perl-DBI-changes.patch
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.6.1
 %if %{?_with_tests:1}%{!?_with_tests:0}
@@ -37,6 +39,7 @@ niezale¿ny od typu aktualnie u¿ywanej bazy.
 
 %prep
 %setup -q -n %{pnam}-%{version}
+%patch0 -p0
 
 %build
 perl Makefile.PL
@@ -60,7 +63,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{perl_sitelib}/DBIx
 %{perl_sitearch}/DBI.pm
-%{perl_sitearch}/DBI
+%dir %{perl_sitearch}/DBI
+%{perl_sitearch}/DBI/Const
+%{perl_sitearch}/DBI/[DFPS]*.pm
 %{perl_sitearch}/DBD
 %dir %{perl_sitearch}/auto/DBD
 %dir %{perl_sitearch}/auto/DBI
