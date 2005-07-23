@@ -154,7 +154,7 @@ Apache'a. Mo¿na je analizowaæ za pomoc± dbiprof.
 
 %prep
 %setup -q -n %{pnam}-%{version}
-%patch0 -p1 -b .orig
+%patch0 -p1
 mv Roadmap.pod lib/DBI
 mv Changes lib/DBI/Changes.pod
 echo 'man DBI::Changes' > Changes
