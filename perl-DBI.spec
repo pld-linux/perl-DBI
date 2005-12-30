@@ -24,20 +24,20 @@ Summary(sv):	Ett databas錿komst-API f鰎 Perl
 Summary(zh_CN):	Perl 的数据库访问 API。
 Name:		perl-DBI
 Version:	1.48
-Release:	1
+Release:	2
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
 # Source0-md5:	87396e1a9c06d1190f1ca70e1da1163e
-Patch0:		perl-DBI-changes.patch
-BuildRequires:	rpm-perlprov >= 4.1-13
+Patch0:		%{name}-changes.patch
 BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with autodeps} || %{with tests}
-BuildRequires:	perl-PlRPC
 BuildRequires:	perl-Net-Daemon
+BuildRequires:	perl-PlRPC
 %endif
-Conflicts:	perl-DBD-CSV < 1:0.21
 Obsoletes:	perl-DBI-FAQ
+Conflicts:	perl-DBD-CSV < 1:0.21
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_noautoreq	'perl(DBD::<foo>)' 'perl(DBI::Format)' 'perl(DBI::PurePerl)'
@@ -170,13 +170,20 @@ echo 'man DBI::Changes' > Changes
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT{%{perl_vendorlib}/DBIx,%{perl_vendorarch}/auto/DBD}
+install -d $RPM_BUILD_ROOT{%{perl_vendorlib}/DBIx,%{perl_vendorarch}/{DBIx,auto/{DBD,DBIx}}}
 
 # no reason to include Bundle::* in rpms
 rm -rf $RPM_BUILD_ROOT{%{perl_vendorarch}/Bundle,%{_mandir}/man3/Bundle::*}
+rm $RPM_BUILD_ROOT%{perl_vendorarch}/auto/DBI/.packlist
+
+# not our os
+rm -f $RPM_BUILD_ROOT%{perl_vendorarch}/{DBI/W32ODBC,Win32/DBIODBC}.pm
+rm -f $RPM_BUILD_ROOT%{_mandir}/man3/{DBI::W32,Win32::DBI}ODBC.3pm
+# different format in %doc
+rm -f $RPM_BUILD_ROOT%{perl_vendorarch}/DBI/{Changes,Roadmap}.pod
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -188,6 +195,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorlib}/DBIx
 %{perl_vendorarch}/DBI.pm
 %dir %{perl_vendorarch}/DBI
+%dir %{perl_vendorarch}/DBIx
 %{perl_vendorarch}/DBI/Const
 %{perl_vendorarch}/DBI/DBD
 %{perl_vendorarch}/DBI/SQL
@@ -195,6 +203,7 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/DBD
 %dir %{perl_vendorarch}/auto/DBD
 %dir %{perl_vendorarch}/auto/DBI
+%dir %{perl_vendorarch}/auto/DBIx
 %{perl_vendorarch}/auto/DBI/*.h
 %{perl_vendorarch}/auto/DBI/Driver.xst
 %{perl_vendorarch}/auto/DBI/DBI.bs
