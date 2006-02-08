@@ -23,12 +23,12 @@ Summary(ru):	âÉÂÌÉÏÔÅËÁ ÄÌÑ ÄÏÓÔÕÐÁ Ë ÂÁÚÁÍ ÄÁÎÎÙÈ ÄÌÑ Perl
 Summary(sv):	Ett databasåtkomst-API för Perl
 Summary(zh_CN):	Perl µÄÊý¾Ý¿â·ÃÎÊ API¡£
 Name:		perl-DBI
-Version:	1.48
-Release:	2
+Version:	1.50
+Release:	1
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
-# Source0-md5:	87396e1a9c06d1190f1ca70e1da1163e
+# Source0-md5:	487cb22f89ab21029725eb6e0b861a2a
 Patch0:		%{name}-changes.patch
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
