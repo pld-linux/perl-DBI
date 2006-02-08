@@ -10,21 +10,21 @@
 +#	$(NOECHO) $(NOOP)
  
 -$(changes_pm): Changes
--	$(NOECHO) $(MKPATH) $(inst_libdbi)
--	$(NOECHO) $(RM_F) $(changes_pm)
+-	$(MKPATH) $(inst_libdbi)
+-	$(RM_F) $(changes_pm)
 -	$(CP) Changes $(changes_pm)
 +#$(changes_pm): Changes
-+#	$(NOECHO) $(MKPATH) $(inst_libdbi)
-+#	$(NOECHO) $(RM_F) $(changes_pm)
++#	$(MKPATH) $(inst_libdbi)
++#	$(RM_F) $(changes_pm)
 +#	$(CP) Changes $(changes_pm)
  
 -$(roadmap_pm): Roadmap.pod
--	$(NOECHO) $(MKPATH) $(inst_libdbi)
--	$(NOECHO) $(RM_F) $(roadmap_pm)
+-	$(MKPATH) $(inst_libdbi)
+-	$(RM_F) $(roadmap_pm)
 -	$(CP) Roadmap.pod $(roadmap_pm)
 +#$(roadmap_pm): Roadmap.pod
-+#	$(NOECHO) $(MKPATH) $(inst_libdbi)
-+#	$(NOECHO) $(RM_F) $(roadmap_pm)
++#	$(MKPATH) $(inst_libdbi)
++#	$(RM_F) $(roadmap_pm)
 +#	$(CP) Roadmap.pod $(roadmap_pm)
  ';
  
