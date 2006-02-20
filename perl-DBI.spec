@@ -1,3 +1,5 @@
+# TODO
+# - perl(RPC::PlClient) as optional?
 #
 # Conditional build:
 %bcond_without	autodeps	# don't BR packages needed only for resolving deps
