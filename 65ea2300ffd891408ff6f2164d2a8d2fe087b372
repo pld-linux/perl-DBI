@@ -1,0 +1,5 @@
+- translations, cleaning
+- added %{perl_sitelib}/DBIx, %{perl_sitearch}/Bundle and
+  %{perl_sitearch}/auto/DBD dirs
+- new %doc
+- release 3
