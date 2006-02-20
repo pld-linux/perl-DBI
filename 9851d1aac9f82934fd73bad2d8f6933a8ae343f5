@@ -1,0 +1,4 @@
+- removed Bundle::* - we use rpm dependencies
+- added %{perl_sitearch}/{DBD,DBI,Win32,auto/DBI} dirs
+  (all packages that use them require perl-DBI)
+- release 2
