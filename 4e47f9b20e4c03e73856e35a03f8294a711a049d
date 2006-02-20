@@ -1,0 +1,4 @@
+- DBI/Changes.pm is a POD file
+- removed DBI::W32ODBC (AFAIK we do not provide Win32::ODBC)
+- release 2
+  STBR
