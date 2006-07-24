@@ -1,9 +1,9 @@
 # TODO
-# - perl(RPC::PlClient) as optional?
+# - perl(RPC::PlClient) as optional?  If yes, separate /proxy/i to subpackage.
 #
 # Conditional build:
 %bcond_without	autodeps	# don't BR packages needed only for resolving deps
-%bcond_with	tests		# perform "make test"
+%bcond_without	tests		# perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	DBI
@@ -25,12 +25,12 @@ Summary(ru):	âÉÂÌÉÏÔÅËÁ ÄÌÑ ÄÏÓÔÕÐÁ Ë ÂÁÚÁÍ ÄÁÎÎÙÈ ÄÌÑ Perl
 Summary(sv):	Ett databasåtkomst-API för Perl
 Summary(zh_CN):	Perl µÄÊý¾Ý¿â·ÃÎÊ API¡£
 Name:		perl-DBI
-Version:	1.50
+Version:	1.51
 Release:	1
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
-# Source0-md5:	487cb22f89ab21029725eb6e0b861a2a
+# Source0-md5:	d2ecc92395c4ab8221bac2866afbae04
 Patch0:		%{name}-changes.patch
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -42,7 +42,7 @@ Obsoletes:	perl-DBI-FAQ
 Conflicts:	perl-DBD-CSV < 1:0.21
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_noautoreq	'perl(DBD::<foo>)' 'perl(DBI::Format)' 'perl(DBI::PurePerl)'
+%define		_noautoreq	'perl(DBD::<foo>)' 'perl(DBI::Format)' 'perl(DBI::PurePerl)' 'perl(DBI)' 'perl(DBI::.*)'
 %define		_noautoreqdep	'perl(UNIVERSAL)'
 
 %description
@@ -215,7 +215,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/DBI.*
 %{_mandir}/man3/DBI::Profile.*
 %{_mandir}/man3/DBI::ProfileData.*
-%{_mandir}/man3/DBI::ProfileDumper.*
 %{_mandir}/man3/DBI::ProxyServer.*
 %{_mandir}/man3/DBI::PurePerl.*
 %{_mandir}/man3/DBI::[!PW]*
