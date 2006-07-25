@@ -212,14 +212,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{perl_vendorarch}/auto/DBI/DBI.so
 %{_mandir}/man1/*
 %{_mandir}/man3/DBD*
-%{_mandir}/man3/DBI.*
-%{_mandir}/man3/DBI::Profile.*
-%{_mandir}/man3/DBI::ProfileData.*
-%{_mandir}/man3/DBI::ProxyServer.*
-%{_mandir}/man3/DBI::PurePerl.*
+%{_mandir}/man3/DBI.3*
+%{_mandir}/man3/DBI::Profile.3*
+%{_mandir}/man3/DBI::ProfileData.3*
+%{_mandir}/man3/DBI::ProfileDumper.3*
+%{_mandir}/man3/DBI::ProxyServer.3*
+%{_mandir}/man3/DBI::PurePerl.3*
 %{_mandir}/man3/DBI::[!PW]*
 
 %files ProfileDumper-Apache
 %defattr(644,root,root,755)
-%{perl_vendorarch}/DBI/ProfileDumper
-%{_mandir}/man3/DBI::ProfileDumper::*
+%dir %{perl_vendorarch}/DBI/ProfileDumper
+%{perl_vendorarch}/DBI/ProfileDumper/Apache.pm
+%{_mandir}/man3/DBI::ProfileDumper::Apache.3*
