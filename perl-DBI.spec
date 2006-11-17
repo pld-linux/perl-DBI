@@ -26,7 +26,7 @@ Summary(sv):	Ett databasåtkomst-API för Perl
 Summary(zh_CN):	Perl µÄÊý¾Ý¿â·ÃÎÊ API¡£
 Name:		perl-DBI
 Version:	1.53
-Release:	1
+Release:	2
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
@@ -160,6 +160,8 @@ Apache'a. Mo¿na je analizowaæ za pomoc± dbiprof.
 mv Roadmap.pod lib/DBI
 mv Changes lib/DBI/Changes.pod
 echo 'man DBI::Changes' > Changes
+
+mv t/80proxy.t{,-needs-syslog}
 
 %build
 %{__perl} Makefile.PL \
