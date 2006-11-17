@@ -25,12 +25,12 @@ Summary(ru):	âÉÂÌÉÏÔÅËÁ ÄÌÑ ÄÏÓÔÕÐÁ Ë ÂÁÚÁÍ ÄÁÎÎÙÈ ÄÌÑ Perl
 Summary(sv):	Ett databasåtkomst-API för Perl
 Summary(zh_CN):	Perl µÄÊý¾Ý¿â·ÃÎÊ API¡£
 Name:		perl-DBI
-Version:	1.51
+Version:	1.53
 Release:	1
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
-# Source0-md5:	d2ecc92395c4ab8221bac2866afbae04
+# Source0-md5:	e76dfeeb37eb7346342a49142d36171d
 Patch0:		%{name}-changes.patch
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -185,14 +185,14 @@ rm $RPM_BUILD_ROOT%{perl_vendorarch}/auto/DBI/.packlist
 rm -f $RPM_BUILD_ROOT%{perl_vendorarch}/{DBI/W32ODBC,Win32/DBIODBC}.pm
 rm -f $RPM_BUILD_ROOT%{_mandir}/man3/{DBI::W32,Win32::DBI}ODBC.3pm
 # different format in %doc
-rm -f $RPM_BUILD_ROOT%{perl_vendorarch}/DBI/{Changes,Roadmap}.pod
+rm -f $RPM_BUILD_ROOT%{perl_vendorarch}/{TASKS,DBI/{Changes,Roadmap}}.pod
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README ToDo
+%doc Changes README
 %attr(755,root,root) %{_bindir}/*
 %dir %{perl_vendorlib}/DBIx
 %{perl_vendorarch}/DBI.pm
@@ -216,9 +216,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/DBI::Profile.3*
 %{_mandir}/man3/DBI::ProfileData.3*
 %{_mandir}/man3/DBI::ProfileDumper.3*
+%{_mandir}/man3/DBI::ProfileSubs.3pm*
 %{_mandir}/man3/DBI::ProxyServer.3*
 %{_mandir}/man3/DBI::PurePerl.3*
 %{_mandir}/man3/DBI::[!PW]*
+%{_mandir}/man3/TASKS.3pm*
 
 %files ProfileDumper-Apache
 %defattr(644,root,root,755)
