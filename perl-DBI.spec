@@ -9,21 +9,21 @@
 %define		pdir	DBI
 %define		pnam	DBI
 Summary:	DBI - database independent interface for Perl
-Summary(cs):	API pro pøístup k databázím pro Perl
-Summary(da):	En database-API for Perl
-Summary(de):	Ein API Datenbankzugriff für Perl
-Summary(es):	Acceso de base de datos API para Perl
-Summary(fr):	Une IPA pour l'accès aux bases de données pour Perl
-Summary(it):	API di accesso a database per Perl
-Summary(ja):	Perl ÍÑ¥Ç¡¼¥¿¥Ù¡¼¥¹¥¢¥¯¥»¥¹ API
-Summary(ko):	ÆŞ¿¡ »ç¿ëµÇ´Â µ¥ÀÌÅ¸º£ÀÌ½º ¾×¼¼½º API
-Summary(nb):	Et database-API for Perl
-Summary(pl):	DBI - niezale¿ny interfejs baz danych dla Perla
-Summary(pt):	Uma API de acesso a bases de dados para o Perl
-Summary(pt_BR):	Uma API de acesso a bases de dados para o Perl
-Summary(ru):	âÉÂÌÉÏÔÅËÁ ÄÌÑ ÄÏÓÔÕĞÁ Ë ÂÁÚÁÍ ÄÁÎÎÙÈ ÄÌÑ Perl
-Summary(sv):	Ett databasåtkomst-API för Perl
-Summary(zh_CN):	Perl µÄÊı¾İ¿â·ÃÎÊ API¡£
+Summary(cs.UTF-8):   API pro pÅ™Ã­stup k databÃ¡zÃ­m pro Perl
+Summary(da.UTF-8):   En database-API for Perl
+Summary(de.UTF-8):   Ein API Datenbankzugriff fÃ¼r Perl
+Summary(es.UTF-8):   Acceso de base de datos API para Perl
+Summary(fr.UTF-8):   Une IPA pour l'accÃ¨s aux bases de donnÃ©es pour Perl
+Summary(it.UTF-8):   API di accesso a database per Perl
+Summary(ja.UTF-8):   Perl ç”¨ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚¢ã‚¯ã‚»ã‚¹ API
+Summary(ko.UTF-8):   í„ì— ì‚¬ìš©ë˜ëŠ” ë°ì´íƒ€ë² ì´ìŠ¤ ì•¡ì„¸ìŠ¤ API
+Summary(nb.UTF-8):   Et database-API for Perl
+Summary(pl.UTF-8):   DBI - niezaleÅ¼ny interfejs baz danych dla Perla
+Summary(pt.UTF-8):   Uma API de acesso a bases de dados para o Perl
+Summary(pt_BR.UTF-8):   Uma API de acesso a bases de dados para o Perl
+Summary(ru.UTF-8):   Ğ‘Ğ¸Ğ±Ğ»Ğ¸Ğ¾Ñ‚ĞµĞºĞ° Ğ´Ğ»Ñ Ğ´Ğ¾ÑÑ‚ÑƒĞ¿Ğ° Ğº Ğ±Ğ°Ğ·Ğ°Ğ¼ Ğ´Ğ°Ğ½Ğ½Ñ‹Ñ… Ğ´Ğ»Ñ Perl
+Summary(sv.UTF-8):   Ett databasÃ¥tkomst-API fÃ¶r Perl
+Summary(zh_CN.UTF-8):   Perl çš„æ•°æ®åº“è®¿é—® APIã€‚
 Name:		perl-DBI
 Version:	1.53
 Release:	2
@@ -51,92 +51,92 @@ It defines a set of methods, variables, and conventions that provide a
 consistent database interface, independent of the actual database
 being used.
 
-%description -l cs
-DBI je Application Programming Interface (API) pro pøístup k databázím
-pro programovací jazyk Perl. Specifikace DBI API definuje sadu funkcí,
-promìnnıch a konvencí, které poskytují konzistentní databázové
-rozhraní nezávislé na právì pou¾ité databázi.
+%description -l cs.UTF-8
+DBI je Application Programming Interface (API) pro pÅ™Ã­stup k databÃ¡zÃ­m
+pro programovacÃ­ jazyk Perl. Specifikace DBI API definuje sadu funkcÃ­,
+promÄ›nnÃ½ch a konvencÃ­, kterÃ© poskytujÃ­ konzistentnÃ­ databÃ¡zovÃ©
+rozhranÃ­ nezÃ¡vislÃ© na prÃ¡vÄ› pouÅ¾itÃ© databÃ¡zi.
 
-%description -l da
-DBI er en databaseadgangsprogrammeringsgrænseflade (API) for
+%description -l da.UTF-8
+DBI er en databaseadgangsprogrammeringsgrÃ¦nseflade (API) for
 programmeringssproget Perl. DBI API-specifikationen definerer et antal
 funktioner, variable og konventioner som tilbyder et konsistent
-databasegrænseflade uafhængigt af den faktiske database som bruges.
+databasegrÃ¦nseflade uafhÃ¦ngigt af den faktiske database som bruges.
 
-%description -l de
+%description -l de.UTF-8
 DBI ist ein Datenbankzugriff Application Programming Interface (API)
-für die Programmiersprache Perl. Die DBI API Spezifikation definiert
+fÃ¼r die Programmiersprache Perl. Die DBI API Spezifikation definiert
 ein Set von Funktionen, Variablen und Konventionen die ein von der
-aktuell benutzten Datenbank unabhängiges, konsistentes
+aktuell benutzten Datenbank unabhÃ¤ngiges, konsistentes
 Datenbankinterface bereitstellen.
 
-%description -l es
-DBI es una interfaz de programación de aplicación del acceso de base
-dedatos (API) para el lenguaje de programación de Perl. La
-especificación de DBI API define un conjunto de funciones, de
+%description -l es.UTF-8
+DBI es una interfaz de programaciÃ³n de aplicaciÃ³n del acceso de base
+dedatos (API) para el lenguaje de programaciÃ³n de Perl. La
+especificaciÃ³n de DBI API define un conjunto de funciones, de
 variables y de las convenciones que proporcionan a un interfaz de base
 de datos constante independiente de la base de datos real que es
 utilizada.
 
-%description -l fr
-DBI est une interface de programme d'applications d'accès aux bases de
-données (IPA) pour le langage de programmation Perl. La spécification
-de l'IPA DBI définit des fonctions, des variables et des conventions
-qui fournissent une interface de base de donnée indépendante de la
-base de données utilisée.
+%description -l fr.UTF-8
+DBI est une interface de programme d'applications d'accÃ¨s aux bases de
+donnÃ©es (IPA) pour le langage de programmation Perl. La spÃ©cification
+de l'IPA DBI dÃ©finit des fonctions, des variables et des conventions
+qui fournissent une interface de base de donnÃ©e indÃ©pendante de la
+base de donnÃ©es utilisÃ©e.
 
-%description -l it
-DBI è un'API (Application Programming Interface) di accesso a database
+%description -l it.UTF-8
+DBI Ã¨ un'API (Application Programming Interface) di accesso a database
 per il linguaggio di programmazione Perl. La specifica API di DBI
 definisce una serie di funzioni, variabili e convenzioni che
 forniscono un'interfaccia database conforme e indipendente dal
 database in uso.
 
-%description -l ja
-DBI ¤Ï Perl ¥×¥í¥°¥é¥ß¥ó¥°¸À¸ìÍÑ¤Î¥Ç¡¼¥¿¥Ù¡¼¥¹¥¢¥¯¥»¥¹ API
-(Application Programming Interface) ¤Ç¤¹¡£DBI API ¤Î»ÅÍÍ¤Ï¡¢¼Âºİ¤Ë»ÈÍÑ
-¤µ¤ì¤ë¥Ç¡¼¥¿¥Ù¡¼¥¹¤È¤ÏÊÌ¤Î°ì´ÓÀ­¤Î¤¢¤ë¥Ç¡¼¥¿¥Ù¡¼¥¹¥¤¥ó¥¿¡¼¥Õ¥§¥¤¥¹¤òµ¬
-Äê¤¹¤ë´Ø¿ô¡¢ ÊÑ¿ô¡¢Ë¡Â§¤Î¥»¥Ã¥È¤òÄêµÁ¤·¤Ş¤¹¡£
+%description -l ja.UTF-8
+DBI ã¯ Perl ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªç”¨ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚¢ã‚¯ã‚»ã‚¹ API
+(Application Programming Interface) ã§ã™ã€‚DBI API ã®ä»•æ§˜ã¯ã€å®Ÿéš›ã«ä½¿ç”¨
+ã•ã‚Œã‚‹ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã¨ã¯åˆ¥ã®ä¸€è²«æ€§ã®ã‚ã‚‹ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’è¦
+å®šã™ã‚‹é–¢æ•°ã€ å¤‰æ•°ã€æ³•å‰‡ã®ã‚»ãƒƒãƒˆã‚’å®šç¾©ã—ã¾ã™ã€‚
 
-%description -l pl
-DBI jest modu³em dostêpu do baz danych dla Perla. Definiuje grupê
-metod, zmiennych i konwencji, zapewniaj±cych spójny interfejs do baz
-danych, niezale¿ny od typu aktualnie u¿ywanej bazy.
+%description -l pl.UTF-8
+DBI jest moduÅ‚em dostÄ™pu do baz danych dla Perla. Definiuje grupÄ™
+metod, zmiennych i konwencji, zapewniajÄ…cych spÃ³jny interfejs do baz
+danych, niezaleÅ¼ny od typu aktualnie uÅ¼ywanej bazy.
 
-%description -l pt
-O DBI é uma API (Application Programming Interface) de acesso a bases
-de dados para a linguagem Perl. A especificação da API do DBI define
-um conjunto de funções, variáveis e convenções que oferecem uma
+%description -l pt.UTF-8
+O DBI Ã© uma API (Application Programming Interface) de acesso a bases
+de dados para a linguagem Perl. A especificaÃ§Ã£o da API do DBI define
+um conjunto de funÃ§Ãµes, variÃ¡veis e convenÃ§Ãµes que oferecem uma
 interface de bases de dados consistente e independente da base de
-dados que é usada para o efeito.
+dados que Ã© usada para o efeito.
 
-%description -l pt_BR
-O DBI é uma API (Application Programming Interface) de acesso a bases
-de dados para a linguagem Perl. A especificação da API do DBI define
-um conjunto de funções, variáveis e convenções que oferecem uma
+%description -l pt_BR.UTF-8
+O DBI Ã© uma API (Application Programming Interface) de acesso a bases
+de dados para a linguagem Perl. A especificaÃ§Ã£o da API do DBI define
+um conjunto de funÃ§Ãµes, variÃ¡veis e convenÃ§Ãµes que oferecem uma
 interface de bases de dados consistente e independente da base de
-dados que é usada para o efeito.
+dados que Ã© usada para o efeito.
 
-%description -l ru
-DBI ÜÔÏ ÂÉÂÌÉÏÔÅËÁ ÄÌÑ ÄÏÓÔÕĞÁ Ë ÂÁÚÁÍ ÄÁÎÎÙÈ ÄÌÑ ÑÚÙËÁ Perl. DBI API
-ÏĞÒÅÄÅÌÑÅÔ ÎÁÂÏÒ ÆÕÎËÃÉÊ, ĞÅÒÅÍÅÎÎÙÈ É ËÏÎ×ÅÒÓÉÊ; ÏÂÅÓĞÅŞÉ×ÁÅÔ
-ÎÅÚÁ×ÉÓÉÍÙÊ ÉÎÔÅÒÆÅÊÓ ÂÁÚÙ ÄÁÎÎÙÈ.
+%description -l ru.UTF-8
+DBI ÑÑ‚Ğ¾ Ğ±Ğ¸Ğ±Ğ»Ğ¸Ğ¾Ñ‚ĞµĞºĞ° Ğ´Ğ»Ñ Ğ´Ğ¾ÑÑ‚ÑƒĞ¿Ğ° Ğº Ğ±Ğ°Ğ·Ğ°Ğ¼ Ğ´Ğ°Ğ½Ğ½Ñ‹Ñ… Ğ´Ğ»Ñ ÑĞ·Ñ‹ĞºĞ° Perl. DBI API
+Ğ¾Ğ¿Ñ€ĞµĞ´ĞµĞ»ÑĞµÑ‚ Ğ½Ğ°Ğ±Ğ¾Ñ€ Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ğ¹, Ğ¿ĞµÑ€ĞµĞ¼ĞµĞ½Ğ½Ñ‹Ñ… Ğ¸ ĞºĞ¾Ğ½Ğ²ĞµÑ€ÑĞ¸Ğ¹; Ğ¾Ğ±ĞµÑĞ¿ĞµÑ‡Ğ¸Ğ²Ğ°ĞµÑ‚
+Ğ½ĞµĞ·Ğ°Ğ²Ğ¸ÑĞ¸Ğ¼Ñ‹Ğ¹ Ğ¸Ğ½Ñ‚ĞµÑ€Ñ„ĞµĞ¹Ñ Ğ±Ğ°Ğ·Ñ‹ Ğ´Ğ°Ğ½Ğ½Ñ‹Ñ….
 
-%description -l sv
-DBI är ett databasåtkomstprogrammeringsgränssnitt (API) för
-programmeringsspråket Perl. DBI API-specifikationen definerar ett
+%description -l sv.UTF-8
+DBI Ã¤r ett databasÃ¥tkomstprogrammeringsgrÃ¤nssnitt (API) fÃ¶r
+programmeringssprÃ¥ket Perl. DBI API-specifikationen definerar ett
 antal funktioner, variabler och konventioner som erbjuder ett
-konsistent databasgränssnitt oberoende av den faktiska databas som
-används.
+konsistent databasgrÃ¤nssnitt oberoende av den faktiska databas som
+anvÃ¤nds.
 
-%description -l zh_CN
-DBI ÊÇÓÃÓÚ Perl ±à³ÌÓïÑÔµÄÊı¾İ¿â·ÃÎÊ³ÌĞò±àĞ´½çÃæ (API)¡£ DBI API
-Ã÷Ï¸±í¶¨ÒåÁËÒ»×éº¯Êı¡¢±äÁ¿ºÍ¶¨¹æ£¬ËüÃÇÌá¹©ÁËÒ»¸ö¶ÀÁ¢ÓÚÊµ¼Ê±»Ê¹ÓÃµÄÊı¾İ
-¿âÖ®ÍâµÄÁ¬¹áµÄÊı¾İ¿â ½çÃæ¡£
+%description -l zh_CN.UTF-8
+DBI æ˜¯ç”¨äº Perl ç¼–ç¨‹è¯­è¨€çš„æ•°æ®åº“è®¿é—®ç¨‹åºç¼–å†™ç•Œé¢ (API)ã€‚ DBI API
+æ˜ç»†è¡¨å®šä¹‰äº†ä¸€ç»„å‡½æ•°ã€å˜é‡å’Œå®šè§„ï¼Œå®ƒä»¬æä¾›äº†ä¸€ä¸ªç‹¬ç«‹äºå®é™…è¢«ä½¿ç”¨çš„æ•°æ®
+åº“ä¹‹å¤–çš„è¿è´¯çš„æ•°æ®åº“ ç•Œé¢ã€‚
 
 %package ProfileDumper-Apache
 Summary:	DBI::ProfileDumper::Apache - capture DBI profiling data from Apache/mod_perl
-Summary(pl):	DBI::ProfileDumper::Apache - przechwytywanie danych parametryzuj±cych DBI z Apache/mod_perl
+Summary(pl.UTF-8):   DBI::ProfileDumper::Apache - przechwytywanie danych parametryzujÄ…cych DBI z Apache/mod_perl
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -147,12 +147,12 @@ It works by creating a DBI::ProfileDumper data file for each Apache
 process. These files are created in your Apache log directory. You can
 then use dbiprof to analyze the profile files.
 
-%description ProfileDumper-Apache -l pl
-Modu³ ten sprzêga DBI::ProfileDumper z Apache/mod_perl. Korzystaj±c z
-niego mo¿na pobraæ dane o parametryzacji z aplikacji mod_perl. Dzia³a
+%description ProfileDumper-Apache -l pl.UTF-8
+ModuÅ‚ ten sprzÄ™ga DBI::ProfileDumper z Apache/mod_perl. KorzystajÄ…c z
+niego moÅ¼na pobraÄ‡ dane o parametryzacji z aplikacji mod_perl. DziaÅ‚a
 on w oparciu o tworzenie przez DBI::ProfileDumper pliku danych dla
-ka¿dego procesu Apache'a. Pliki te tworzone s± w katalogu logów
-Apache'a. Mo¿na je analizowaæ za pomoc± dbiprof.
+kaÅ¼dego procesu Apache'a. Pliki te tworzone sÄ… w katalogu logÃ³w
+Apache'a. MoÅ¼na je analizowaÄ‡ za pomocÄ… dbiprof.
 
 %prep
 %setup -q -n %{pnam}-%{version}
