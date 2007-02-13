@@ -9,21 +9,21 @@
 %define		pdir	DBI
 %define		pnam	DBI
 Summary:	DBI - database independent interface for Perl
-Summary(cs.UTF-8):   API pro přístup k databázím pro Perl
-Summary(da.UTF-8):   En database-API for Perl
-Summary(de.UTF-8):   Ein API Datenbankzugriff für Perl
-Summary(es.UTF-8):   Acceso de base de datos API para Perl
-Summary(fr.UTF-8):   Une IPA pour l'accès aux bases de données pour Perl
-Summary(it.UTF-8):   API di accesso a database per Perl
-Summary(ja.UTF-8):   Perl 用データベースアクセス API
-Summary(ko.UTF-8):   펄에 사용되는 데이타베이스 액세스 API
-Summary(nb.UTF-8):   Et database-API for Perl
-Summary(pl.UTF-8):   DBI - niezależny interfejs baz danych dla Perla
-Summary(pt.UTF-8):   Uma API de acesso a bases de dados para o Perl
-Summary(pt_BR.UTF-8):   Uma API de acesso a bases de dados para o Perl
-Summary(ru.UTF-8):   Библиотека для доступа к базам данных для Perl
-Summary(sv.UTF-8):   Ett databasåtkomst-API för Perl
-Summary(zh_CN.UTF-8):   Perl 的数据库访问 API。
+Summary(cs.UTF-8):	API pro přístup k databázím pro Perl
+Summary(da.UTF-8):	En database-API for Perl
+Summary(de.UTF-8):	Ein API Datenbankzugriff für Perl
+Summary(es.UTF-8):	Acceso de base de datos API para Perl
+Summary(fr.UTF-8):	Une IPA pour l'accès aux bases de données pour Perl
+Summary(it.UTF-8):	API di accesso a database per Perl
+Summary(ja.UTF-8):	Perl 用データベースアクセス API
+Summary(ko.UTF-8):	펄에 사용되는 데이타베이스 액세스 API
+Summary(nb.UTF-8):	Et database-API for Perl
+Summary(pl.UTF-8):	DBI - niezależny interfejs baz danych dla Perla
+Summary(pt.UTF-8):	Uma API de acesso a bases de dados para o Perl
+Summary(pt_BR.UTF-8):	Uma API de acesso a bases de dados para o Perl
+Summary(ru.UTF-8):	Библиотека для доступа к базам данных для Perl
+Summary(sv.UTF-8):	Ett databasåtkomst-API för Perl
+Summary(zh_CN.UTF-8):	Perl 的数据库访问 API。
 Name:		perl-DBI
 Version:	1.53
 Release:	2
@@ -136,7 +136,7 @@ DBI 是用于 Perl 编程语言的数据库访问程序编写界面 (API)。 DBI
 
 %package ProfileDumper-Apache
 Summary:	DBI::ProfileDumper::Apache - capture DBI profiling data from Apache/mod_perl
-Summary(pl.UTF-8):   DBI::ProfileDumper::Apache - przechwytywanie danych parametryzujących DBI z Apache/mod_perl
+Summary(pl.UTF-8):	DBI::ProfileDumper::Apache - przechwytywanie danych parametryzujących DBI z Apache/mod_perl
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
