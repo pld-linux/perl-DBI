@@ -1,31 +1,23 @@
 --- DBI-1.48/Makefile.PL.orig	2004-12-14 16:31:41.000000000 +0100
 +++ DBI-1.48/Makefile.PL	2005-07-24 01:00:42.310828888 +0200
-@@ -293,18 +293,18 @@
- changes_pm = '  . File::Spec->catfile($self->{INST_LIB}, 'DBI', 'Changes.pm') . '
+@@ -309,19 +309,6 @@
  roadmap_pm = '  . File::Spec->catfile($self->{INST_LIB}, 'DBI', 'Roadmap.pm') . '
+ '.q{
  
 -config :: $(changes_pm) $(roadmap_pm)
 -	$(NOECHO) $(NOOP)
-+#config :: $(changes_pm) $(roadmap_pm)
-+#	$(NOECHO) $(NOOP)
- 
+-
 -$(changes_pm): Changes
 -	$(MKPATH) $(inst_libdbi)
 -	$(RM_F) $(changes_pm)
 -	$(CP) Changes $(changes_pm)
-+#$(changes_pm): Changes
-+#	$(MKPATH) $(inst_libdbi)
-+#	$(RM_F) $(changes_pm)
-+#	$(CP) Changes $(changes_pm)
- 
+-
 -$(roadmap_pm): Roadmap.pod
 -	$(MKPATH) $(inst_libdbi)
 -	$(RM_F) $(roadmap_pm)
 -	$(CP) Roadmap.pod $(roadmap_pm)
-+#$(roadmap_pm): Roadmap.pod
-+#	$(MKPATH) $(inst_libdbi)
-+#	$(RM_F) $(roadmap_pm)
-+#	$(CP) Roadmap.pod $(roadmap_pm)
- ';
- 
-     return $xst;
+-
+ checkkeywords:
+ 	$(RM_RF) blib
+ 	find . -type f \( -name .svn -prune -o -name \*.pm -o -name \*.PL -o -name \*.pl \) \
+
