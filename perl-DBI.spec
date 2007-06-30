@@ -25,12 +25,12 @@ Summary(ru.UTF-8):	Библиотека для доступа к базам да
 Summary(sv.UTF-8):	Ett databasåtkomst-API för Perl
 Summary(zh_CN.UTF-8):	Perl 的数据库访问 API。
 Name:		perl-DBI
-Version:	1.53
-Release:	2
+Version:	1.58
+Release:	1
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
-# Source0-md5:	e76dfeeb37eb7346342a49142d36171d
+# Source0-md5:	132a7a28481824692e48d71b06994e09
 Patch0:		%{name}-changes.patch
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -197,12 +197,15 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes README
 %attr(755,root,root) %{_bindir}/*
 %dir %{perl_vendorlib}/DBIx
+%{perl_vendorarch}/*.pl
 %{perl_vendorarch}/DBI.pm
 %dir %{perl_vendorarch}/DBI
 %dir %{perl_vendorarch}/DBIx
 %{perl_vendorarch}/DBI/Const
 %{perl_vendorarch}/DBI/DBD
+%{perl_vendorarch}/DBI/Gofer
 %{perl_vendorarch}/DBI/SQL
+%{perl_vendorarch}/DBI/Util
 %{perl_vendorarch}/DBI/[DFPS]*.pm
 %{perl_vendorarch}/DBD
 %dir %{perl_vendorarch}/auto/DBD
