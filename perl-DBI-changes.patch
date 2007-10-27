@@ -1,5 +1,5 @@
---- DBI-1.48/Makefile.PL.orig	2004-12-14 16:31:41.000000000 +0100
-+++ DBI-1.48/Makefile.PL	2005-07-24 01:00:42.310828888 +0200
+--- DBI-1.601/Makefile.PL~	2007-09-28 17:11:08.000000000 +0100
++++ DBI-1.601/Makefile.PL	2007-10-27 16:55:35.349648759 +0100
 @@ -309,19 +309,6 @@
  roadmap_pm = '  . File::Spec->catfile($self->{INST_LIB}, 'DBI', 'Roadmap.pm') . '
  '.q{
@@ -17,7 +17,6 @@
 -	$(RM_F) $(roadmap_pm)
 -	$(CP) Roadmap.pod $(roadmap_pm)
 -
- checkkeywords:
- 	$(RM_RF) blib
- 	find . -type f \( -name .svn -prune -o -name \*.pm -o -name \*.PL -o -name \*.pl \) \
-
+ faq:
+ 	: checkin any local changes not already checked in before overwriting
+ 	svn commit --message "dbi.tiddlyspot.com FAQ update" dbi.tiddlyspot.com.html
