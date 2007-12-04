@@ -1,6 +1,3 @@
-# TODO
-# - perl(RPC::PlClient) as optional?  If yes, separate /proxy/i to subpackage.
-#
 # Conditional build:
 %bcond_without	autodeps	# don't BR packages needed only for resolving deps
 %bcond_without	tests		# perform "make test"
@@ -26,7 +23,7 @@ Summary(sv.UTF-8):	Ett databasåtkomst-API för Perl
 Summary(zh_CN.UTF-8):	Perl 的数据库访问 API。
 Name:		perl-DBI
 Version:	1.601
-Release:	1
+Release:	2
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
@@ -42,7 +39,7 @@ Obsoletes:	perl-DBI-FAQ
 Conflicts:	perl-DBD-CSV < 1:0.21
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_noautoreq	'perl(DBD::<foo>)' 'perl(DBI::Format)' 'perl(DBI::PurePerl)' 'perl(DBI)' 'perl(DBI::.*)'
+%define		_noautoreq	'perl(DBD::<foo>)' 'perl(DBI)' 'perl(DBI::.*)'
 %define		_noautoreqdep	'perl(UNIVERSAL)'
 
 %description
@@ -134,6 +131,19 @@ DBI 是用于 Perl 编程语言的数据库访问程序编写界面 (API)。 DBI
 明细表定义了一组函数、变量和定规，它们提供了一个独立于实际被使用的数据
 库之外的连贯的数据库 界面。
 
+%package DBD-Proxy
+Summary:	DBD::Proxy - A proxy driver for the DBI
+Group:		Development/Languages/Perl
+Requires:	%{name} = %{version}-%{release}
+
+%description DBD-Proxy
+DBD::Proxy is a Perl module for connecting to a database via a remote
+DBI driver.
+
+This is of course not needed for DBI drivers which already support
+connecting to a remote database, but there are engines which don't
+offer network connectivity.
+
 %package ProfileDumper-Apache
 Summary:	DBI::ProfileDumper::Apache - capture DBI profiling data from Apache/mod_perl
 Summary(pl.UTF-8):	DBI::ProfileDumper::Apache - przechwytywanie danych parametryzujących DBI z Apache/mod_perl
@@ -206,7 +216,7 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/DBI/Gofer
 %{perl_vendorarch}/DBI/SQL
 %{perl_vendorarch}/DBI/Util
-%{perl_vendorarch}/DBI/[DFPS]*.pm
+%{perl_vendorarch}/DBI/*.pm
 %{perl_vendorarch}/DBD
 %dir %{perl_vendorarch}/auto/DBD
 %dir %{perl_vendorarch}/auto/DBI
@@ -217,15 +227,23 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{perl_vendorarch}/auto/DBI/DBI.so
 %{_mandir}/man1/*
 %{_mandir}/man3/DBD*
-%{_mandir}/man3/DBI.3*
-%{_mandir}/man3/DBI::Profile.3*
-%{_mandir}/man3/DBI::ProfileData.3*
-%{_mandir}/man3/DBI::ProfileDumper.3*
-%{_mandir}/man3/DBI::ProfileSubs.3pm*
-%{_mandir}/man3/DBI::ProxyServer.3*
-%{_mandir}/man3/DBI::PurePerl.3*
-%{_mandir}/man3/DBI::[!PW]*
+%{_mandir}/man3/DBI*
 %{_mandir}/man3/TASKS.3pm*
+
+# in subpackages
+%exclude %{_mandir}/man3/DBD::Proxy.3pm*
+%exclude %{_mandir}/man3/DBI::ProfileDumper::Apache.3*
+%exclude %{_mandir}/man3/DBI::ProxyServer.3*
+%exclude %{perl_vendorarch}/DBD/Proxy.pm
+%exclude %{perl_vendorarch}/DBI/ProfileDumper/Apache.pm
+%exclude %{perl_vendorarch}/DBI/ProxyServer.pm
+
+%files DBD-Proxy
+%defattr(644,root,root,755)
+%{perl_vendorarch}/DBD/Proxy.pm
+%{perl_vendorarch}/DBI/ProxyServer.pm
+%{_mandir}/man3/DBD::Proxy.3pm*
+%{_mandir}/man3/DBI::ProxyServer.3*
 
 %files ProfileDumper-Apache
 %defattr(644,root,root,755)
