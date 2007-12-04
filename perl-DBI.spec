@@ -131,12 +131,12 @@ DBI 是用于 Perl 编程语言的数据库访问程序编写界面 (API)。 DBI
 明细表定义了一组函数、变量和定规，它们提供了一个独立于实际被使用的数据
 库之外的连贯的数据库 界面。
 
-%package DBD-Proxy
+%package -n perl-DBD-Proxy
 Summary:	DBD::Proxy - A proxy driver for the DBI
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
-%description DBD-Proxy
+%description -n perl-DBD-Proxy
 DBD::Proxy is a Perl module for connecting to a database via a remote
 DBI driver.
 
@@ -238,7 +238,7 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{perl_vendorarch}/DBI/ProfileDumper/Apache.pm
 %exclude %{perl_vendorarch}/DBI/ProxyServer.pm
 
-%files DBD-Proxy
+%files -n perl-DBD-Proxy
 %defattr(644,root,root,755)
 %{perl_vendorarch}/DBD/Proxy.pm
 %{perl_vendorarch}/DBI/ProxyServer.pm
