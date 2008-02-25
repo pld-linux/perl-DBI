@@ -1,3 +1,4 @@
+#
 # Conditional build:
 %bcond_without	autodeps	# don't BR packages needed only for resolving deps
 %bcond_without	tests		# perform "make test"
@@ -22,13 +23,14 @@ Summary(ru.UTF-8):	Библиотека для доступа к базам да
 Summary(sv.UTF-8):	Ett databasåtkomst-API för Perl
 Summary(zh_CN.UTF-8):	Perl 的数据库访问 API。
 Name:		perl-DBI
-Version:	1.601
-Release:	4
+Version:	1.602
+Release:	1
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
-# Source0-md5:	d80677bd8113ec8cb0438b8703f3c418
+Source0:	http://www.cpan.org/modules/by-module/DBI/%{pnam}-%{version}.tar.gz
+# Source0-md5:	6ca87d67decf274983e62261889edc85
 Patch0:		%{name}-changes.patch
+URL:		http://search.cpan.org/dist/DBI/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with autodeps} || %{with tests}
