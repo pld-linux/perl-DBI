@@ -135,6 +135,7 @@ DBI 是用于 Perl 编程语言的数据库访问程序编写界面 (API)。 DBI
 
 %package -n perl-DBD-Proxy
 Summary:	DBD::Proxy - A proxy driver for the DBI
+Summary(pl.UTF-8):	DBD::Proxy - sterownik proxy dla DBI
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -145,6 +146,14 @@ DBI driver.
 This is of course not needed for DBI drivers which already support
 connecting to a remote database, but there are engines which don't
 offer network connectivity.
+
+%description -n perl-DBD-Proxy -l pl.UTF-8
+DBD::Proxy to moduł Perla służący do łączenia się z bazą danych
+poprzez zdalny sterownik DBI.
+
+Nie jest to oczywiście potrzebne dla sterowników DBI które same
+obsługują łączenie się ze zdalną bazą danych, ale oprócz nich są
+silniki, które nie oferują łączności sieciowej.
 
 %package ProfileDumper-Apache
 Summary:	DBI::ProfileDumper::Apache - capture DBI profiling data from Apache/mod_perl
