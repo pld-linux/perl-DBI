@@ -24,7 +24,7 @@ Summary(sv.UTF-8):	Ett databasåtkomst-API för Perl
 Summary(zh_CN.UTF-8):	Perl 的数据库访问 API。
 Name:		perl-DBI
 Version:	1.607
-Release:	1
+Release:	2
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/DBI/%{pnam}-%{version}.tar.gz
@@ -41,7 +41,7 @@ Obsoletes:	perl-DBI-FAQ
 Conflicts:	perl-DBD-CSV < 1:0.21
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_noautoreq	'perl(DBD::<foo>)' 'perl(DBI)' 'perl(DBI::.*)'
+%define		_noautoreq	'perl(DBD::<foo>)' 'perl(DBI)' 'perl(DBI::.*)' 'perl(DBD::File::.*)'
 %define		_noautoreqdep	'perl(UNIVERSAL)'
 
 %description
