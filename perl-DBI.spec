@@ -23,12 +23,12 @@ Summary(ru.UTF-8):	Библиотека для доступа к базам да
 Summary(sv.UTF-8):	Ett databasåtkomst-API för Perl
 Summary(zh_CN.UTF-8):	Perl 的数据库访问 API。
 Name:		perl-DBI
-Version:	1.607
-Release:	3
+Version:	1.608
+Release:	1
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/DBI/%{pnam}-%{version}.tar.gz
-# Source0-md5:	bd5785b39675213948a61dea1b400012
+# Source0-md5:	54cd68ec5788b03e6aca8c3490bf929d
 Patch0:		%{name}-changes.patch
 URL:		http://search.cpan.org/dist/DBI/
 BuildRequires:	perl-devel >= 1:5.8.0
