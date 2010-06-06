@@ -27,7 +27,7 @@ Version:	1.611
 Release:	1
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/DBI/%{pnam}-%{version}.tar.gz
+Source0:	http://search.cpan.org/CPAN/authors/id/T/TI/TIMB/%{pnam}-%{version}.tar.gz
 # Source0-md5:	f48bc718e871f8926809af16682783fb
 Patch0:		%{name}-changes.patch
 URL:		http://search.cpan.org/dist/DBI/
