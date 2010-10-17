@@ -23,13 +23,12 @@ Summary(ru.UTF-8):	Библиотека для доступа к базам да
 Summary(sv.UTF-8):	Ett databasåtkomst-API för Perl
 Summary(zh_CN.UTF-8):	Perl 的数据库访问 API。
 Name:		perl-DBI
-Version:	1.611
+Version:	1.615
 Release:	1
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://search.cpan.org/CPAN/authors/id/T/TI/TIMB/%{pnam}-%{version}.tar.gz
-# Source0-md5:	f48bc718e871f8926809af16682783fb
-Patch0:		%{name}-changes.patch
+# Source0-md5:	1d88dfecd8e372a87591cd8c55944430
 URL:		http://search.cpan.org/dist/DBI/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -177,8 +176,6 @@ Apache'a. Można je analizować za pomocą dbiprof.
 
 %prep
 %setup -q -n %{pnam}-%{version}
-%patch0 -p1
-mv Roadmap.pod lib/DBI
 mv Changes lib/DBI/Changes.pod
 echo 'man DBI::Changes' > Changes
 
@@ -240,7 +237,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_mandir}/man3/DBD*
 %{_mandir}/man3/DBI*
-%{_mandir}/man3/TASKS.3pm*
 
 # in subpackages
 %exclude %{_mandir}/man3/DBD::Proxy.3pm*
