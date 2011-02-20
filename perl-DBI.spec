@@ -27,7 +27,7 @@ Version:	1.616
 Release:	1
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://search.cpan.org/CPAN/authors/id/T/TI/TIMB/%{pnam}-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/DBI/TIMB/%{pnam}-%{version}.tar.gz
 # Source0-md5:	799313e54a693beb635b47918458f7c4
 URL:		http://search.cpan.org/dist/DBI/
 BuildRequires:	perl-devel >= 1:5.8.0
@@ -199,14 +199,14 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{perl_vendorlib}/DBIx,%{perl_vendorarch}/{DBIx,auto/{DBD,DBIx}}}
 
 # no reason to include Bundle::* in rpms
-rm -rf $RPM_BUILD_ROOT{%{perl_vendorarch}/Bundle,%{_mandir}/man3/Bundle::*}
-rm $RPM_BUILD_ROOT%{perl_vendorarch}/auto/DBI/.packlist
+%{__rm} -r $RPM_BUILD_ROOT{%{perl_vendorarch}/Bundle,%{_mandir}/man3/Bundle::*}
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/auto/DBI/.packlist
 
 # not our os
-rm -f $RPM_BUILD_ROOT%{perl_vendorarch}/{DBI/W32ODBC,Win32/DBIODBC}.pm
-rm -f $RPM_BUILD_ROOT%{_mandir}/man3/{DBI::W32,Win32::DBI}ODBC.3pm
-# different format in %doc
-rm -f $RPM_BUILD_ROOT%{perl_vendorarch}/{TASKS,DBI/{Changes,Roadmap}}.pod
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/{DBI/W32ODBC,Win32/DBIODBC}.pm
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/man3/{DBI::W32,Win32::DBI}ODBC.3pm
+# already in doc
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/DBI/Changes.pod
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -214,7 +214,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/dbilogstrip
+%attr(755,root,root) %{_bindir}/dbiprof
+%attr(755,root,root) %{_bindir}/dbiproxy
 %dir %{perl_vendorlib}/DBIx
 %{perl_vendorarch}/*.pl
 %{perl_vendorarch}/DBI.pm
@@ -234,14 +236,16 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/auto/DBI/Driver.xst
 %{perl_vendorarch}/auto/DBI/DBI.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/DBI/DBI.so
-%{_mandir}/man1/*
-%{_mandir}/man3/DBD*
-%{_mandir}/man3/DBI*
+%{_mandir}/man1/dbilogstrip.1p*
+%{_mandir}/man1/dbiprof.1p*
+%{_mandir}/man1/dbiproxy.1p*
+%{_mandir}/man3/DBD::*.3pm*
+%{_mandir}/man3/DBI*.3pm*
 
 # in subpackages
 %exclude %{_mandir}/man3/DBD::Proxy.3pm*
-%exclude %{_mandir}/man3/DBI::ProfileDumper::Apache.3*
-%exclude %{_mandir}/man3/DBI::ProxyServer.3*
+%exclude %{_mandir}/man3/DBI::ProfileDumper::Apache.3pm*
+%exclude %{_mandir}/man3/DBI::ProxyServer.3pm*
 %exclude %{perl_vendorarch}/DBD/Proxy.pm
 %exclude %{perl_vendorarch}/DBI/ProfileDumper/Apache.pm
 %exclude %{perl_vendorarch}/DBI/ProxyServer.pm
@@ -251,10 +255,10 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/DBD/Proxy.pm
 %{perl_vendorarch}/DBI/ProxyServer.pm
 %{_mandir}/man3/DBD::Proxy.3pm*
-%{_mandir}/man3/DBI::ProxyServer.3*
+%{_mandir}/man3/DBI::ProxyServer.3pm*
 
 %files ProfileDumper-Apache
 %defattr(644,root,root,755)
 %dir %{perl_vendorarch}/DBI/ProfileDumper
 %{perl_vendorarch}/DBI/ProfileDumper/Apache.pm
-%{_mandir}/man3/DBI::ProfileDumper::Apache.3*
+%{_mandir}/man3/DBI::ProfileDumper::Apache.3pm*
