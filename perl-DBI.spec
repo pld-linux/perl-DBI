@@ -1,6 +1,5 @@
 #
 # Conditional build:
-%bcond_without	autodeps	# don't BR packages needed only for resolving deps
 %bcond_without	tests		# perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
@@ -23,25 +22,35 @@ Summary(ru.UTF-8):	Библиотека для доступа к базам да
 Summary(sv.UTF-8):	Ett databasåtkomst-API för Perl
 Summary(zh_CN.UTF-8):	Perl 的数据库访问 API。
 Name:		perl-DBI
-Version:	1.624
-Release:	2
+Version:	1.627
+Release:	1
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/DBI/%{pnam}-%{version}.tar.gz
-# Source0-md5:	fa88da46496455c1536f997850d8d420
+# Source0-md5:	aab49be51b0f4867a1894145b023d2c5
 URL:		http://search.cpan.org/dist/DBI/
-BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	perl-ExtUtils-MakeMaker >= 6.48
+BuildRequires:	perl-devel >= 1:5.8.1
 BuildRequires:	rpm-perlprov >= 4.1-13
-%if %{with autodeps} || %{with tests}
+%if %{with tests}
 BuildRequires:	perl-Net-Daemon
-BuildRequires:	perl-PlRPC
+BuildRequires:	perl-PlRPC >= 0.2001
+BuildRequires:	perl-Test-Simple >= 0.90
 %endif
+Suggests:	perl-Clone >= 0.34
+Suggests:	perl-PlRPC >= 0.2001
+Suggests:	perl-SQL-Statement >= 1.402
 Obsoletes:	perl-DBI-FAQ
-Conflicts:	perl-DBD-CSV < 1:0.21
+Conflicts:	perl-DBD-Amazon < 0.10
+Conflicts:	perl-DBD-AnyData < 0.110
+Conflicts:	perl-DBD-CSV < 1:0.36
+Conflicts:	perl-DBD-Google < 0.51
+Conflicts:	perl-DBD-PO < 2.10
+Conflicts:	perl-DBD-RAM < 0.072
+Conflicts:	perl-SQL-Statement < 1.33
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_noautoreq	'perl(DBD::<foo>)' 'perl(DBI)' 'perl(DBI::.*)' 'perl(DBD::File::.*)'
-%define		_noautoreqdep	'perl(UNIVERSAL)'
+%define		_noautoreq_perl	DBD::<foo> DBI DBI::.* DBD::File::.*
 
 %description
 The DBI is a database access module for the Perl programming language.
@@ -213,7 +222,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README
+%doc Changes README.md
 %attr(755,root,root) %{_bindir}/dbilogstrip
 %attr(755,root,root) %{_bindir}/dbiprof
 %attr(755,root,root) %{_bindir}/dbiproxy
