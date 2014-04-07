@@ -1,10 +1,10 @@
 #
 # Conditional build:
 %bcond_without	tests		# perform "make test"
-#
-%include	/usr/lib/rpm/macros.perl
+
 %define		pdir	DBI
 %define		pnam	DBI
+%include	/usr/lib/rpm/macros.perl
 Summary:	DBI - database independent interface for Perl
 Summary(cs.UTF-8):	API pro přístup k databázím pro Perl
 Summary(da.UTF-8):	En database-API for Perl
@@ -23,7 +23,7 @@ Summary(sv.UTF-8):	Ett databasåtkomst-API för Perl
 Summary(zh_CN.UTF-8):	Perl 的数据库访问 API。
 Name:		perl-DBI
 Version:	1.628
-Release:	1
+Release:	2
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/DBI/%{pnam}-%{version}.tar.gz
@@ -163,6 +163,16 @@ Nie jest to oczywiście potrzebne dla sterowników DBI które same
 obsługują łączenie się ze zdalną bazą danych, ale oprócz nich są
 silniki, które nie oferują łączności sieciowej.
 
+%package Coro
+Summary:	Asynchronous DBD::Gofer stream transport using Coro
+Group:		Development/Languages/Perl
+Requires:	%{name} = %{version}-%{release}
+
+%description Coro
+This is an experimental asynchronous DBD::Gofer stream transport for
+DBI implemented on top of Coro. The BIG WIN from using Coro is that it
+enables the use of existing DBI frameworks like DBIx::Class.
+
 %package ProfileDumper-Apache
 Summary:	DBI::ProfileDumper::Apache - capture DBI profiling data from Apache/mod_perl
 Summary(pl.UTF-8):	DBI::ProfileDumper::Apache - przechwytywanie danych parametryzujących DBI z Apache/mod_perl
@@ -201,7 +211,6 @@ mv t/80proxy.t{,-needs-syslog}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -258,6 +267,7 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{perl_vendorarch}/DBD/Proxy.pm
 %exclude %{perl_vendorarch}/DBI/ProfileDumper/Apache.pm
 %exclude %{perl_vendorarch}/DBI/ProxyServer.pm
+%exclude %{perl_vendorarch}/DBD/Gofer/Transport/corostream.pm
 
 %files -n perl-DBD-Proxy
 %defattr(644,root,root,755)
@@ -265,6 +275,11 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/DBI/ProxyServer.pm
 %{_mandir}/man3/DBD::Proxy.3pm*
 %{_mandir}/man3/DBI::ProxyServer.3pm*
+
+%files Coro
+%defattr(644,root,root,755)
+%doc ex/corogofer.pl
+%{perl_vendorarch}/DBD/Gofer/Transport/corostream.pm
 
 %files ProfileDumper-Apache
 %defattr(644,root,root,755)
