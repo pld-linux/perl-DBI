@@ -252,7 +252,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorarch}/auto/DBIx
 %{perl_vendorarch}/auto/DBI/*.h
 %{perl_vendorarch}/auto/DBI/Driver.xst
-%{perl_vendorarch}/auto/DBI/DBI.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/DBI/DBI.so
 %{_mandir}/man1/dbilogstrip.1p*
 %{_mandir}/man1/dbiprof.1p*
