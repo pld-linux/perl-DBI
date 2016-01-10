@@ -1,5 +1,6 @@
 #
 # Conditional build:
+%bcond_with	coro		# don't package Coro transport
 %bcond_without	tests		# perform "make test"
 
 %define		pdir	DBI
@@ -23,7 +24,7 @@ Summary(sv.UTF-8):	Ett databasåtkomst-API för Perl
 Summary(zh_CN.UTF-8):	Perl 的数据库访问 API。
 Name:		perl-DBI
 Version:	1.634
-Release:	2
+Release:	3
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/DBI/%{pnam}-%{version}.tar.gz
@@ -226,6 +227,10 @@ install -d $RPM_BUILD_ROOT{%{perl_vendorlib}/DBIx,%{perl_vendorarch}/{DBIx,auto/
 # already in doc
 %{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/DBI/Changes.pod
 
+%if %{without coro}
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/DBD/Gofer/Transport/corostream.pm
+%endif
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -266,7 +271,9 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{perl_vendorarch}/DBD/Proxy.pm
 %exclude %{perl_vendorarch}/DBI/ProfileDumper/Apache.pm
 %exclude %{perl_vendorarch}/DBI/ProxyServer.pm
+%if %{with coro}
 %exclude %{perl_vendorarch}/DBD/Gofer/Transport/corostream.pm
+%endif
 
 %files -n perl-DBD-Proxy
 %defattr(644,root,root,755)
@@ -275,10 +282,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/DBD::Proxy.3pm*
 %{_mandir}/man3/DBI::ProxyServer.3pm*
 
+%if %{with coro}
 %files Coro
 %defattr(644,root,root,755)
 %doc ex/corogofer.pl
 %{perl_vendorarch}/DBD/Gofer/Transport/corostream.pm
+%endif
 
 %files ProfileDumper-Apache
 %defattr(644,root,root,755)
