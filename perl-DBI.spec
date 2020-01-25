@@ -5,7 +5,6 @@
 
 %define		pdir	DBI
 %define		pnam	DBI
-%include	/usr/lib/rpm/macros.perl
 Summary:	DBI - database independent interface for Perl
 Summary(cs.UTF-8):	API pro přístup k databázím pro Perl
 Summary(da.UTF-8):	En database-API for Perl
