@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	coro		# don't package Coro transport
+%bcond_with	coro		# Coro transport
 %bcond_without	tests		# perform "make test"
 
 %define		pdir	DBI
@@ -22,16 +22,17 @@ Summary(ru.UTF-8):	Библиотека для доступа к базам да
 Summary(sv.UTF-8):	Ett databasåtkomst-API för Perl
 Summary(zh_CN.UTF-8):	Perl 的数据库访问 API。
 Name:		perl-DBI
-Version:	1.642
-Release:	2
+Version:	1.643
+Release:	1
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/DBI/%{pnam}-%{version}.tar.gz
-# Source0-md5:	f2ba18b5cea1c8cb322a62be0a847f3d
-URL:		http://search.cpan.org/dist/DBI/
+# Source0-md5:	352f80b1e23769c116082a90905d7398
+URL:		https://metacpan.org/release/DBI
 BuildRequires:	perl-ExtUtils-MakeMaker >= 6.48
 BuildRequires:	perl-devel >= 1:5.8.1
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
 BuildRequires:	perl-Net-Daemon
 BuildRequires:	perl-PlRPC >= 0.2001
@@ -165,6 +166,7 @@ silniki, które nie oferują łączności sieciowej.
 
 %package Coro
 Summary:	Asynchronous DBD::Gofer stream transport using Coro
+Summary(pl.UTF-8):	Asynchroniczny transport strumieni DBD::Gofer przy użyciu Coro
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -172,6 +174,12 @@ Requires:	%{name} = %{version}-%{release}
 This is an experimental asynchronous DBD::Gofer stream transport for
 DBI implemented on top of Coro. The BIG WIN from using Coro is that it
 enables the use of existing DBI frameworks like DBIx::Class.
+
+%description Coro -l pl.UTF-8
+Ten pakiet zawiera eksperymentalny, asynchroniczny transport strumieni
+DBD::Gofer dla DBI, zaimplementowany w oparciu o Coro. Dużym zyskiem z
+użycia Coro jest możliwość korzystania z istniejących szkieletów DBI,
+takich jak DBIx::Class.
 
 %package ProfileDumper-Apache
 Summary:	DBI::ProfileDumper::Apache - capture DBI profiling data from Apache/mod_perl
@@ -220,7 +228,7 @@ install -d $RPM_BUILD_ROOT{%{perl_vendorlib}/DBIx,%{perl_vendorarch}/{DBIx,auto/
 %{__rm} -r $RPM_BUILD_ROOT{%{perl_vendorarch}/Bundle,%{_mandir}/man3/Bundle::*}
 %{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/auto/DBI/.packlist
 
-# not our os
+# not our OS
 %{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/{DBI/W32ODBC,Win32/DBIODBC}.pm
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man3/{DBI::W32,Win32::DBI}ODBC.3pm
 # already in doc
