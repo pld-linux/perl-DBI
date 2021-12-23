@@ -23,11 +23,12 @@ Summary(sv.UTF-8):	Ett databasåtkomst-API för Perl
 Summary(zh_CN.UTF-8):	Perl 的数据库访问 API。
 Name:		perl-DBI
 Version:	1.643
-Release:	2
+Release:	3
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/DBI/%{pnam}-%{version}.tar.gz
 # Source0-md5:	352f80b1e23769c116082a90905d7398
+Patch0:		cve-2014-10401.patch
 URL:		https://metacpan.org/release/DBI
 BuildRequires:	perl-ExtUtils-MakeMaker >= 6.48
 BuildRequires:	perl-devel >= 1:5.8.1
@@ -203,6 +204,8 @@ Apache'a. Można je analizować za pomocą dbiprof.
 
 %prep
 %setup -q -n %{pnam}-%{version}
+%patch0 -p1
+
 mv Changes lib/DBI/Changes.pod
 echo 'man DBI::Changes' > Changes
 
