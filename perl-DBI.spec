@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_with	coro		# Coro transport
-%bcond_without	tests		# perform "make test"
+%bcond_without	tests		# unit tests
 
 %define		pdir	DBI
 %define		pnam	DBI
@@ -42,7 +42,7 @@ BuildRequires:	perl-Test-Simple >= 0.90
 Suggests:	perl-Clone >= 0.34
 Suggests:	perl-PlRPC >= 0.2001
 Suggests:	perl-SQL-Statement >= 1.402
-Obsoletes:	perl-DBI-FAQ
+Obsoletes:	perl-DBI-FAQ < 0.39
 Conflicts:	perl-DBD-Amazon < 0.10
 Conflicts:	perl-DBD-AnyData < 0.110
 Conflicts:	perl-DBD-CSV < 1:0.36
@@ -206,10 +206,10 @@ Apache'a. Można je analizować za pomocą dbiprof.
 %setup -q -n %{pnam}-%{version}
 %patch0 -p1
 
-mv Changes lib/DBI/Changes.pod
+%{__mv} Changes lib/DBI/Changes.pod
 echo 'man DBI::Changes' > Changes
 
-mv t/80proxy.t{,-needs-syslog}
+%{__mv} t/80proxy.t{,-needs-syslog}
 
 %build
 %{__perl} Makefile.PL \
