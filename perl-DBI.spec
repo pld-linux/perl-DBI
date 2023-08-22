@@ -29,7 +29,7 @@ Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/DBI/%{pnam}-%{version}.tar.gz
 # Source0-md5:	352f80b1e23769c116082a90905d7398
 Patch0:		cve-2014-10401.patch
-URL:		https://metacpan.org/release/DBI
+URL:		https://metacpan.org/dist/DBI
 BuildRequires:	perl-ExtUtils-MakeMaker >= 6.48
 BuildRequires:	perl-devel >= 1:5.8.1
 BuildRequires:	rpm-perlprov >= 4.1-13
