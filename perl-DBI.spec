@@ -204,7 +204,7 @@ Apache'a. Można je analizować za pomocą dbiprof.
 
 %prep
 %setup -q -n %{pnam}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %{__mv} Changes lib/DBI/Changes.pod
 echo 'man DBI::Changes' > Changes
